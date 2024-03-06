@@ -63,10 +63,10 @@ class Coffee {	//[[[[[별도의 파일로 분리하는게 좋음]]]]]
 		this.volume = volume;
 	}
 	
-	Coffee(Coffee coffee){		//[[[[[다른 함수명 사용하는게 좋음]]]]]
-		this(coffee.getName(), coffee.getPrice(), coffee.getVolume());
-	}
-	
+	Coffee makeCoffee(){
+      return new Coffee(this.name, this.price, this.volume);
+    }
+
 	int getPrice() {
 		return this.price;
 	}
