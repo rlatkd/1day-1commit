@@ -1,4 +1,3 @@
-// 짱짱...
 package kr.or.kosa;
 
 import java.util.Arrays;
