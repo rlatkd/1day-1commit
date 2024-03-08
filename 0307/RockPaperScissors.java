@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Rps {
+public class RockPaperScissors {
 
    public static void main(String[] args) {
 
