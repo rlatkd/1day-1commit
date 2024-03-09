@@ -81,7 +81,7 @@ class Coffee {	//[[[[[별도의 파일로 분리하는게 좋음]]]]]
 	
 }
 
-public class Japanki {		//[[[[[자판기를 커스텀할 수 있다면 overloading으로 구현해야함]]]]]
+public class CoffeVendingMachine {		//[[[[[자판기를 커스텀할 수 있다면 overloading으로 구현해야함]]]]]
 	String shape;
 	int size;
 	String color;
@@ -103,7 +103,7 @@ public class Japanki {		//[[[[[자판기를 커스텀할 수 있다면 overloadi
 	Coffee georgiaCoffee;
 	Coffee kanuCoffee;
 	
-	Japanki() {
+	CoffeVendingMachine() {
 		this.shape = "직사각형";
 		this.size = 1500;
 		this.color = "blue";

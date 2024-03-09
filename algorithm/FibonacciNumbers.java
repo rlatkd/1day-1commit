@@ -7,7 +7,7 @@
 
 import java.util.Arrays;
 
-public class No02 {
+public class FibonacciNumbers {
 	
 	public static void main(String[] args) {
 		int[] arr = new int[10];

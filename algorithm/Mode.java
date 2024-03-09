@@ -8,7 +8,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class No03 {
+public class Mode {
 	
 	public static void main(String[] args) {
 		
