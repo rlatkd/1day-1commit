@@ -86,24 +86,26 @@ class Buyer {
 	
 	void buy(Product product) {	//가전제품의 제품정보를 받아와야함
 		
+		System.out.println();
+		
 		if (this.money < product.price) {
-			System.out.println();
+			
 			System.out.println("고객님 잔액이 부족합니다.");
 			
 			//함수 종료
 			return;
 		}
-		else {
-			this.money -= product.price;
-			this.bonuspoint += product.bonuspoint;
-			System.out.printf("현재 잔액은 %d원입니다.\n", this.money);
-			System.out.printf("구매하신 물품은 %s입니다.\n", product.toString());
-			System.out.printf("포인트가 적입되었습니다. 현재 포인트: %s\n", this.bonuspoint);
-		}
+		
+		this.money -= product.price;
+		this.bonuspoint += product.bonuspoint;
+		System.out.printf("현재 잔액은 %d원입니다.\n", this.money);
+		System.out.printf("구매하신 물품은 %s입니다.\n", product.toString());
+		System.out.printf("포인트가 적입되었습니다. 현재 포인트: %s\n", this.bonuspoint);
+		
 	}
 }
 
-public class Buyer1 {
+public class BuyProduct {
 
 	public static void main(String[] args) {
 		
