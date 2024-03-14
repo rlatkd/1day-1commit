@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class BankProgram {
-   
    public static void main(String[] args) {
       Bank bank = new Bank();
       Scanner sc = new Scanner(System.in);
@@ -69,13 +67,11 @@ public class BankProgram {
          }
       }
    }
-   
    public static void printTransactions(List<Transaction> transactions) {
       for(Transaction transaction : transactions) {
          System.out.printf("[금액 : %d(%s), 잔액 : %d, 시간 : %s]\n", transaction.getAmount(), transaction.getKind(), transaction.getBalance(), transaction.getTransactionDateTime());
       }
    }
-
    public static void printAccounts(List<Account> accounts) {
       for(Account account : accounts) {
          System.out.printf("[계좌번호 : %s, 소유자명 : %s, 잔액 : %d]\n", account.getAccountNo(), account.getName(), account.getBalance());
@@ -95,7 +91,6 @@ public class Bank {
    public Bank() {
       this.accounts = new ArrayList<>();
    }
-   
    public void addAccount(String accountNo, String name, long balance) {
       for(Account account : this.accounts) {
          if(account.getAccountNo().equals(accountNo)) {
@@ -105,7 +100,6 @@ public class Bank {
       }
       this.accounts.add(new Account(accountNo, name, balance)); 
    }
-   
    public Account getAccount(String accountNo) {
       for(Account account : this.accounts) {
          if(account.getAccountNo().equals(accountNo)) {
@@ -115,7 +109,6 @@ public class Bank {
       System.out.println("해당 계좌는 존재하지 않음");
       return null;
    }
-   
    public List<Account> findAccount(String name) {
       List<Account> myAccounts = new ArrayList<>();
       for(Account account : this.accounts) {
@@ -125,11 +118,9 @@ public class Bank {
       }
       return myAccounts;
    }
-   
    public List<Account> getAccounts() {
       return this.accounts;
    }
-   
    public int getTotalAccount() {
       return accounts.size();
    }
@@ -146,7 +137,6 @@ import lombok.Data;
 
 @Data
 public class Account {
-   
    private String accountNo;
    private String name;
    private long balance;
@@ -160,14 +150,12 @@ public class Account {
       this.transactions = new ArrayList<>();
       this.formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일HH시mm분");
    }
-
    public void deposit(long amount) {
       this.balance += amount;
         LocalDateTime currentTime = LocalDateTime.now();
       Transaction transaction = new Transaction(currentTime.format(formatter), "입금", amount, balance);
       this.transactions.add(transaction);
    }
-   
    public boolean withdraw(long amount) {
       if(balance < amount) {
          System.out.println("잔액 부족");
@@ -179,11 +167,9 @@ public class Account {
       this.transactions.add(transaction);
       return true;
    }
-   
    public long getBalance() {
       return this.balance;
    }
-   
    public List<Transaction> getTransactions() {
       return this.transactions;
    }
@@ -196,7 +182,6 @@ import lombok.Data;
 
 @Data
 public class Transaction {
-   
    private String transactionDateTime;
    private String kind;
    private long amount;
