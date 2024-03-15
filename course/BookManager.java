@@ -7,19 +7,15 @@ public class Book {
 		this.title = title;
 		this.price = price;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getPrice() {
 		return price;
 	}
-
 	public void setPrice(String price) {
 		this.price = price;
 	}
@@ -32,11 +28,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class BookManager {
-	
 	private Scanner sc;
-	
 	private Map<String, Book> map;
-	
 	public BookManager() {
 		this.sc = new Scanner(System.in);
 		this.map = new HashMap<String, Book>();	
@@ -89,7 +82,6 @@ public class BookManager {
 		
 		System.out.printf("ISBN: %s\t이름: %s\t가격: %s 생성하였습니다.\n", isbn, title, price);
 	}
-	
 	private void deleteBook() {
 		String isbn;
 		while (true) {
@@ -103,8 +95,7 @@ public class BookManager {
 		}
 		map.remove(isbn);
 		System.out.println("삭제가 완료되었습니다.");
-	}	
-		
+	}
 	private void searchBook() {
 		String isbn;
 		while (true) {
@@ -121,14 +112,12 @@ public class BookManager {
 		}
 		Book book = map.get(isbn);
 		System.out.printf("검색 결과>> ISBN: %s\t이름: %s\t가격: %s 입니다.\n", isbn, book.getTitle(), book.getPrice());
-	}
-		
+	}	
 	private void viewBookList() {
 		for (Map.Entry<String, Book> m : map.entrySet()) {
 			System.out.println(m.getKey() + " / " + m.getValue().getTitle() + " / " + m.getValue().getPrice());
 		}
 	}
-	
 	private void viewIsbnList() {
 		for (Map.Entry<String, Book> m : map.entrySet()) {
 			System.out.println(m.getKey());
