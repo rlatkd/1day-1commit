@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+spec:
+  containers:
+  - name: webapp
+    image: gnstkd/webapp:1.0
+    livenessProbe:                       # 어플리케이션이 살이 있는지 확인
+      httpGet:
+        path: /healthz
+        port: 3000
+      initialDelaySeconds: 3             # 검사 개시 대기 시간
+      periodSeconds: 5                   # 검사 간격(주기)
+    readinessProbe:                      # 어플리케이션이 요청을 처리할 준비되었는지 확인
+      httpGet:
+        path: /ready
+        port: 3000
+      initialDelaySeconds: 15
+      periodSeconds: 6

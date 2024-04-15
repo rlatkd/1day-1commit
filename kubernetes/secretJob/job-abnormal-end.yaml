@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-abnormal-end
+spec:
+  template:
+    spec:
+      containers:
+        - name: busybox
+          image: docker.io/busybox
+          command: ["sh", "-c", "sleep 5; exit 1"] ## 비정상 종료
+      restartPolicy: Never
+      imagePullSecrets:
+        - name: regcred
+  #completions: 1      ## 총 실행 회수 (기본값 1)
+  #parallelism: 1      ## 동시 실행할 파드의 개수 (기본값 1)
+  backoffLimit: 3 ## 실패했을 때 재실행하는 최대 회수

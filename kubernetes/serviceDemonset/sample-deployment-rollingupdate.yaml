@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment-rollingupdate
+spec:
+  strategy:
+    type: RollingUpdate # <<<<
+    rollingUpdate:
+      maxUnavailable: 0 # <<<< 업데이트 중 동시에 정지 가능한 최대 파드 수
+      maxSurge: 1 # <<<< 업데이트 중 동시에 생성할 수 있는 최대 파드 수
+  replicas: 3 # maxUnavailable과 maxSurge를 모두 0으로 설정할 수는 없음
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: docker.io/nginx:1.16
+      imagePullSecrets:
+        - name: regcred

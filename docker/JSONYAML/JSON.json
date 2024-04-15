@@ -1,0 +1,14 @@
+{
+    "Servers": [
+        {
+            "name": "Server1",
+            "owner": "Prajwal",
+            "status": "active"
+        },
+        {
+            "name": "Server2",
+            "owner": "John",
+            "status": "inactive"
+        }
+    ]
+}

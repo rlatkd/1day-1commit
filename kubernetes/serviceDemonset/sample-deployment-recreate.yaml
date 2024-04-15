@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment-recreate
+spec:
+  strategy:
+    type: Recreate # <<<<< 기존 레플리카셋의 레플리카 수를 0으로 하고 리소스를 반환
+  replicas: 3 # 신규 레플리카셋을 생성하고 레플리카 수를 늘림
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: docker.io/nginx:1.16
+      imagePullSecrets:
+        - name: regcred

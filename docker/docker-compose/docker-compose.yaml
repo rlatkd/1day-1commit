@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+  wordpressdb:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd
+      - MYSQL_DATABASE=wordpress
+    volumes:
+      - wordpressdb_data:/var/lib/mysql
+
+  wordpress:
+    depends_on:
+      - wordpressdb
+    image: wordpress
+    ports:
+      - 80
+    environment:
+      - WORDPRESS_DB_HOST=wordpressdb:3306
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=p@ssw0rd
+    
+  nginx:
+    depends_on:
+      - wordpress
+    image: nginx
+    volumes:
+      - .\nginx.conf:/etc/nginx/nginx.conf
+    restart: always
+    ports:
+      - "80:80"
+
+volumes:
+  wordpressdb_data: {}

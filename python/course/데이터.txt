@@ -1,0 +1,11 @@
+products = [
+{'name': 'CPU', 'count': 100, 'price': 350000},
+{'name': 'BOARD', 'count': 120, 'price': 125000},
+{'name': 'RAM', 'count': 98, 'price': 60000},
+{'name': 'SSD', 'count': 85, 'price': 95000},
+{'name': 'HDD', 'count': 112, 'price': 80000},
+{'name': 'PSU', 'count': 105, 'price': 89000},
+{'name': 'MONITOR', 'count': 80, 'price': 280000},
+{'name': 'KEYBOARD', 'count': 90, 'price': 23000},
+{'name': 'MOUSE', 'count': 110, 'price': 25000}
+]

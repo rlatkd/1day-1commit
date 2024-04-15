@@ -1,0 +1,22 @@
+masters:
+  - name: master
+    box: generic/ubuntu2204
+    hostname: master
+    ip: 192.168.10.100
+    memory: 2048
+    cpu: 2
+  
+workers:
+  - name: worker-1
+    box: generic/ubuntu2204
+    hostname: worker-1
+    ip: 192.168.10.110
+    memory: 2048
+    cpu: 2
+
+  - name: worker-2
+    box: generic/ubuntu2204
+    hostname: worker-2
+    ip: 192.168.10.120
+    memory: 2048
+    cpu: 2

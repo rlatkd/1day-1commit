@@ -1,0 +1,7 @@
+Servers:
+  - name: Server1
+    owner: Prajwal1
+    status: active
+  - name: Server2
+    owner: John
+    status: inactive

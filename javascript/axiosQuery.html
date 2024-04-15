@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <!-- 실행에 필요한 자바스크립트 라이브러리를 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul>
+    </ul>
+    <script>
+        // axios를 이용해서 국가 및 국기 데이터를 가져옮
+        axios
+        .get('https://restcountries.com/v3.1/all?fields=name,flags')
+        .then(res => {
+            const {data} = res
+            // console.log(res);
+            // console.log(res.data);
+            data.forEach(nf => {
+                const { flags, name } = nf
+                const { png, alt } = flags
+                const { common, official } = name
+                // console.log(nf.flags.png, nf.name.common);
+                const li = `
+                    <li>
+                        <img src="${png}" alt="${alt}">
+                        <p>${common} (${official})</p>
+                    </li>
+                `;
+                $('ul').append(li);
+            });
+        })
+        .catch(err => console.log(err));
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: contents-vol
+      readOnly: true
+  - name: cloner
+    image: gnstkd/contents-cloner:1.0
+    env:
+    - name: CONTENTS_SOURCE_URL
+      value: "https://github.com/rlatkd/practice.git"
+    volumeMounts:
+    - mountPath: /data
+      name: contents-vol
+  volumes:
+  - name: contents-vol
+    emptyDir: {}

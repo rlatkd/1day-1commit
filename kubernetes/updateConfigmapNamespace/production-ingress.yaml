@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: production-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: www.canary.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: production-service
+                port:
+                  number: 80

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment-blue
+spec:
+  selector:
+    matchLabels:
+      app: blue-green-deployment
+      version: v1.16
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: blue-green-deployment
+        version: v1.16
+    spec:
+      containers:
+        - name: my-webserver
+          image: docker.io/alicek106/rr-test:echo-hostname
+      imagePullSecrets:
+        - name: regcred

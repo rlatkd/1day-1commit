@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webservice1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web1
+  template:
+    metadata:
+      labels:
+        app: web1
+    spec:
+      containers:
+        - name: web1
+          image: docker.io/alicek106/rr-test:echo-hostname
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webservice2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web2
+  template:
+    metadata:
+      labels:
+        app: web2
+    spec:
+      containers:
+        - name: web2
+          image: docker.io/alicek106/rr-test:echo-hostname
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

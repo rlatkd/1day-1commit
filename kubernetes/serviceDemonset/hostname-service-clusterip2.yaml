@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hostname-service-clusterip
+spec:
+  type: ClusterIP
+  selector:
+    app: webserver
+  ports:
+    - name: web-port
+      port: 8080
+      targetPort: 80
+  sessionAffinity: ClientIP # 클라이언트 IP 주소에 따라 요청을 처리할 파드가 결정

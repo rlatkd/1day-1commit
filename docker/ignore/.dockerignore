@@ -1,0 +1,8 @@
+bulid-pattern/
+multi-state-build/
+webserver/
+tmp/
+*.md
+!README.md
+password.txt
+*.go

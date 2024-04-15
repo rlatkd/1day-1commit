@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-container-failed
+spec:
+  template:
+    spec:
+      containers:
+        - name: busybox-normal
+          image: docker.io/busybox
+          command: ["sh", "-c", "sleep 5; exit 0"] ## 정상 종료
+        - name: busybox-abnormal
+          image: docker.io/busybox
+          command: ["sh", "-c", "sleep 5; exit 1"] ## 비정상 종료
+      restartPolicy: Never
+      imagePullSecrets:
+        - name: regcred
+  backoffLimit: 2

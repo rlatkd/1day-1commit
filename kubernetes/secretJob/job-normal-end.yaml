@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-normal-end
+spec:
+  template:
+    spec:
+      containers:
+        - name: busybox
+          image: docker.io/busybox
+          command: ["sh", "-c", "sleep 5; exit 0"]
+      restartPolicy: Never
+      imagePullSecrets:
+        - name: regcred
+  completions: 6 ## 총 실행 회수 (0 보다 큰 정수를 설정)
+  parallelism: 2 ## 동시 실행할 파드의 개수

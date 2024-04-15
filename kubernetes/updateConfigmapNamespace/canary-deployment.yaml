@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: canary-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-canary
+  template:
+    metadata:
+      labels:
+        app: nginx-canary
+    spec:
+      containers:
+        - name: nginx-canary
+          image: docker.io/alicek106/rr-test:echo-hostname
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
