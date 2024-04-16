@@ -22,12 +22,3 @@ class Solution {
         return answer;
     }
 }
-/*
-ABCD
-2132 loc2 -> C
-CDAB -> 0+1=1
-
-ABCDEF
-119111 loc0 -> A
-CDEFAB -> 4+1=5
-*/
