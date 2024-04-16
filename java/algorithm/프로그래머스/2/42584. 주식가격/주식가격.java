@@ -6,8 +6,8 @@ class Solution {
         
         for (int i=0; i<prices.length; i++) {
             for (int j=i+1; j<prices.length; j++) {  // 다음값과 비교
-                answer[i]++;  // i번째 값 증가
-                if (prices[i] > prices[j])  // 다음값 보다 크면 탈출
+                answer[i]++;  // 다음값보다 작거나 같을 때 인덱스 값 증가
+                if (prices[i] > prices[j])  // 다음값보다 크면 탈출
                     break;
             }
         }
