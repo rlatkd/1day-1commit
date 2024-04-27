@@ -1,7 +1,6 @@
 import java.util.*;
 
 class Solution {
-    
     // 좌표이동에 사용되는 배열
     int[] dx = {0,0,1,-1};
     int[] dy = {-1,1,0,0};
@@ -31,9 +30,7 @@ class Solution {
         }
     }
     
-    
     public int solution(int[][] maps) {
-        
         int answer = 0;
         int[][] visited = new int[maps.length][maps[0].length]; // 방문 여부 저장
         visited[0][0] = 1;
@@ -44,8 +41,7 @@ class Solution {
         
         if (answer==0) // 도착지점 못 갈때
             answer = -1;
-        
-        
+
         return answer;
     }
 }
