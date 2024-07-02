@@ -15,17 +15,17 @@ class Solution {
         //뒤에서부터 검사
         for (int i=numbers.length-1; i>-1; i--) {
 
-            // stack이 비어있지 않고 현재 숫자가 맨 위 원소 이상이면
+            //스택이 비어있지 않고 현재 숫자가 맨 위 원소 이상이면
             while (!stack.empty() && numbers[i] >= stack.peek()) {
                 stack.pop();
             }
 
-            //stack이 비어있지 않은 경우
+            //스택이 비어있지 않은 경우
             if (!stack.empty()) {
                 result[i] = stack.peek();
             }
 
-            //stack에 현재 숫자 추가
+            //스택에 현재 숫자 추가
             stack.push(numbers[i]);
         }
 
